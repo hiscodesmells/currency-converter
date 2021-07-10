@@ -1,0 +1,11 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+exchangeRates:
+  name: exchangeRates
+  url: http://api.exchangeratesapi.io/v1
+  apiKey: 3fc36bf6feb9091f06c3c5f01ef45974 #Should be encrypted by a KMS

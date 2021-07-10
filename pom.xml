@@ -7,6 +7,11 @@
     <properties>
         <spring-boot-starter-web-version>2.5.2</spring-boot-starter-web-version>
         <spring-boot-starter-test-version>2.5.2</spring-boot-starter-test-version>
+        <spring-boot-starter-cache-version>2.5.2</spring-boot-starter-cache-version>
+        <lombok-version>1.18.20</lombok-version>
+        <feign-client-version>3.0.3</feign-client-version>
+        <spring-cloud-version>2020.0.3</spring-cloud-version>
+        <caffeine-version>3.0.3</caffeine-version>
     </properties>
 
     <parent>
@@ -34,6 +39,43 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${feign-client-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <version>${spring-boot-starter-cache-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine-version}</version>
+        </dependency>
+
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
