@@ -1,8 +1,8 @@
 package org.nosto.assignment.currencyconverter.extensions;
 
-import org.nosto.assignment.currencyconverter.exceptions.RateUnavailableException;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
+import org.nosto.assignment.currencyconverter.exceptions.RateUnavailableException;
 
 public class RateUnavailableExceptionExtension implements TestExecutionExceptionHandler {
     @Override

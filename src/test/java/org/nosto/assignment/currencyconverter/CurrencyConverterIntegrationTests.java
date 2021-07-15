@@ -12,6 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import static org.nosto.assignment.currencyconverter.constants.APIConstants.SERVER_TIMING_HEADER;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -37,15 +38,17 @@ public class CurrencyConverterIntegrationTests {
                             .param(AMOUNT_PARAM, "10.0"))
                 .andDo(print()).andReturn();
         Assertions.assertEquals(result.getResponse().getContentAsString(), "100.0");
+        Assertions.assertNotNull(result.getResponse().getHeader(SERVER_TIMING_HEADER));
     }
 
     @Test
     public void test_convertWithSameSourceAndTargetSymbols() throws Exception {
-        mockMvc.perform(get("/api/convert")
+        MvcResult result = mockMvc.perform(get("/api/convert")
                 .param(SOURCE_PARAM, "EUR")
                 .param(TARGET_PARAM, "EUR")
                 .param(AMOUNT_PARAM, "10.0"))
-                .andDo(print()).andExpect(status().isBadRequest());
+                .andDo(print()).andExpect(status().isBadRequest()).andReturn();
+        Assertions.assertNotNull(result.getResponse().getHeader(SERVER_TIMING_HEADER));
     }
 
     @Test

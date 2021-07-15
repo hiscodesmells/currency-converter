@@ -1,8 +1,8 @@
 package org.nosto.assignment.currencyconverter.services;
 
-import org.nosto.assignment.currencyconverter.exceptions.RateUnavailableException;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.nosto.assignment.currencyconverter.exceptions.RateUnavailableException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,12 @@
 package org.nosto.assignment.currencyconverter.services;
 
-import org.nosto.assignment.currencyconverter.extensions.IllegalArgumentExceptionExtension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.nosto.assignment.currencyconverter.extensions.IllegalArgumentExceptionExtension;
 
 import java.util.Arrays;
 import java.util.Collections;

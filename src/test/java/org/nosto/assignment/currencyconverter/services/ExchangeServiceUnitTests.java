@@ -1,8 +1,5 @@
 package org.nosto.assignment.currencyconverter.services;
 
-import org.nosto.assignment.currencyconverter.domain.SupportedSymbolsResponse;
-import org.nosto.assignment.currencyconverter.extensions.FeignExceptionExtension;
-import org.nosto.assignment.currencyconverter.extensions.NullPointerExceptionExtension;
 import feign.FeignException;
 import feign.Request;
 import org.junit.jupiter.api.Assertions;
@@ -11,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.nosto.assignment.currencyconverter.domain.SupportedSymbolsResponse;
+import org.nosto.assignment.currencyconverter.extensions.FeignExceptionExtension;
+import org.nosto.assignment.currencyconverter.extensions.NullPointerExceptionExtension;
 
 import java.util.Collections;
 import java.util.Map;
