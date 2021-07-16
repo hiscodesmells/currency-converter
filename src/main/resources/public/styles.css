@@ -1,0 +1,22 @@
+body {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+form {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+label {
+  padding:1em 0 0 0
+}
+
+.submit {
+  margin:1em 0 0 0
+}

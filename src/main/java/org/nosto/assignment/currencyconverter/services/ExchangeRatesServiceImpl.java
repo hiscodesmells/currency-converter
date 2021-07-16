@@ -39,7 +39,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
                     log.info("Successfully fetched supported symbols symbols={}", symbols);
                 }
         } catch (FeignException e) {
-            log.error("Failed to get symbols code={} error={}", e.status(), e.getMessage(), e);
+            log.error("Failed to get symbols code={} error={}", e.status(), e.getMessage());
         } catch (Exception e) {
             log.error("Failed to get symbols error={}", e.getMessage(), e);
         }
@@ -57,7 +57,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
             }
             log.info("Successfully fetched latest rate source={} target={}", source, target);
         } catch (FeignException e) {
-            log.error("Failed to convert currency code={} error={}", e.status(), e.getMessage(), e);
+            log.error("Failed to convert currency code={} error={}", e.status(), e.getMessage());
         } catch (Exception e) {
             log.error("Failed to convert currency error={}", e.getMessage(), e);
         }
