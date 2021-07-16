@@ -6,12 +6,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import static org.nosto.assignment.currencyconverter.constants.APIConstants.CONTENT_SECURITY_POLICY_HEADER;
 import static org.nosto.assignment.currencyconverter.constants.APIConstants.SERVER_TIMING_HEADER;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -39,6 +41,7 @@ public class CurrencyConverterIntegrationTests {
                 .andDo(print()).andReturn();
         Assertions.assertEquals(result.getResponse().getContentAsString(), "100.0");
         Assertions.assertNotNull(result.getResponse().getHeader(SERVER_TIMING_HEADER));
+        Assertions.assertEquals(result.getResponse().getHeader(CONTENT_SECURITY_POLICY_HEADER), "script-src 'self'");
     }
 
     @Test
