@@ -9,6 +9,8 @@
         <spring-boot-starter-test-version>2.5.2</spring-boot-starter-test-version>
         <spring-boot-starter-security-version>2.5.2</spring-boot-starter-security-version>
         <spring-boot-starter-cache-version>2.5.2</spring-boot-starter-cache-version>
+        <spring-boot-starter-actuator-version>2.5.2</spring-boot-starter-actuator-version>
+        <micrometer-registry-prometheus-version>1.7.2</micrometer-registry-prometheus-version>
         <lombok-version>1.18.20</lombok-version>
         <feign-client-version>3.0.3</feign-client-version>
         <spring-cloud-version>2020.0.3</spring-cloud-version>
@@ -46,6 +48,17 @@
             <version>${spring-boot-starter-security-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot-starter-actuator-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer-registry-prometheus-version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

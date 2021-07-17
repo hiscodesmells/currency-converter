@@ -27,10 +27,12 @@ public class ServerTimingAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         ServletServerHttpRequest servletServerHttpRequest = (ServletServerHttpRequest) serverHttpRequest;
         Long startTime = (Long) servletServerHttpRequest.getServletRequest().getAttribute(START_TIME);
-        Long endTime = System.currentTimeMillis();
-        String serverTimingHeader = "total;dur=" + (endTime - startTime);
-        serverHttpResponse.getHeaders().add(SERVER_TIMING_HEADER, serverTimingHeader);
-        log.info("Added {} header to response header={}", SERVER_TIMING_HEADER, serverTimingHeader);
+        if (startTime != null) {
+            Long endTime = System.currentTimeMillis();
+            String serverTimingHeader = "total;dur=" + (endTime - startTime);
+            serverHttpResponse.getHeaders().add(SERVER_TIMING_HEADER, serverTimingHeader);
+            log.info("Added {} header to response header={}", SERVER_TIMING_HEADER, serverTimingHeader);
+        }
         return body;
     }
 }
