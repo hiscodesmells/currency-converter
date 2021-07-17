@@ -12,7 +12,7 @@
         <lombok-version>1.18.20</lombok-version>
         <feign-client-version>3.0.3</feign-client-version>
         <spring-cloud-version>2020.0.3</spring-cloud-version>
-        <caffeine-version>3.0.3</caffeine-version>
+        <caffeine-version>2.9.2</caffeine-version>
     </properties>
 
     <parent>
