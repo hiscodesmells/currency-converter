@@ -24,12 +24,12 @@ public class ConvertController {
     private ConversionService conversionService;
 
     @RequestMapping(method = RequestMethod.GET, value = CONVERT_PATH)
-    public Float convert(@RequestParam("source") String source, @RequestParam("target") String target,
+    public String convert(@RequestParam("source") String source, @RequestParam("target") String target,
                                   @RequestParam("amount") String amount) {
         log.info("Received convert request source={} target={} value={}", source, target, amount);
         validationService.validateConvertRequest(source, target, amount);
         log.info("Successfully validated convert request");
-        Float result = conversionService.convert(source, target, amount);
+        String result = conversionService.convert(source, target, amount);
         log.info("Successfully converted currency source={} target={} amount={} result={}", source, target, amount, result);
         return result;
     }

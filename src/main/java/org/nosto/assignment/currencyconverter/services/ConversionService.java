@@ -7,7 +7,7 @@ public interface ConversionService {
      * @param source - Currency symbol to be converted from
      * @param target - Currency symbol to be converted to
      * @param amount - Amount of currency to be converted
-     * @return
+     * @return - Amount in target currency
      */
-    Float convert(String source, String target, String amount);
+    String convert(String source, String target, String amount);
 }

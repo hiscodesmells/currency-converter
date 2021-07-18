@@ -30,9 +30,9 @@ public class ConversionServiceUnitTests {
         String target = "EUR";
         String amount = "10";
         when(exchangeRatesService.getRate(source, target)).thenReturn(10f);
-        Float result = conversionService.convert(source, target, amount);
+        String result = conversionService.convert(source, target, amount);
         verify(exchangeRatesService).getRate(source, target);
-        Assertions.assertEquals(result, 100f);
+        Assertions.assertEquals(result, "100,00 €");
     }
 
     @Test

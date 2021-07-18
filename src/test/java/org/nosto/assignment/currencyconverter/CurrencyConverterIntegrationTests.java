@@ -38,7 +38,7 @@ public class CurrencyConverterIntegrationTests {
                             .param(TARGET_PARAM, "USD")
                             .param(AMOUNT_PARAM, "10.0"))
                 .andDo(print()).andReturn();
-        Assertions.assertEquals(result.getResponse().getContentAsString(), "100.0");
+        Assertions.assertEquals(result.getResponse().getContentAsString(), "$100.00");
         Assertions.assertNotNull(result.getResponse().getHeader(SERVER_TIMING_HEADER));
         Assertions.assertEquals(result.getResponse().getHeader(CONTENT_SECURITY_POLICY_HEADER), "script-src 'self'");
     }
