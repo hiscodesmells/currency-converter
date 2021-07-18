@@ -17,5 +17,5 @@ public interface ExchangeRatesService {
      * @param target - Currency symbol to be converted to
      * @return
      */
-    Float getRate(String source, String target);
+    Double getRate(String source, String target);
 }

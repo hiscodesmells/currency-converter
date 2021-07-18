@@ -27,7 +27,7 @@ public class ValidationServiceImpl implements ValidationService {
         }
         amount = amount.trim();
         try {
-            Float.parseFloat(amount);
+            Double.parseDouble(amount);
         } catch (NumberFormatException e) {
             return false;
         }

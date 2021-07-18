@@ -48,12 +48,12 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 
     @Override
     @Cacheable(value = RATES_CACHE, unless = "#result == null")
-    public Float getRate(String source, String target) {
-        Float rate = null;
+    public Double getRate(String source, String target) {
+        Double rate = null;
         try {
             RateResponse response = exchangeRatesClient.getRate(apiKey, source, Collections.singleton(target));
             if (response.isSuccess()) {
-                rate = Float.parseFloat(new ArrayList<>(response.getRates().values()).get(0));
+                rate = Double.parseDouble(new ArrayList<>(response.getRates().values()).get(0));
             }
             log.info("Successfully fetched latest rate source={} target={}", source, target);
         } catch (FeignException e) {
