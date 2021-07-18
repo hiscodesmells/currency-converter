@@ -15,17 +15,17 @@ A currency conversion application built with Spring Boot and deployed to EC2
 
 | Description | Status | Comments |
 |:-----------:|:------:|:--------:|
-| Basic UI | ✔️ | Deployed at http://44.193.212.220:8080 |
-| REST endpoint with `source`, `target`, `amount` as params | ✔️ | Example - `/api/convert?source=EUR&target=USD&amount=100` |
-| Leverage ExchangeRates API | ✔️ | https://exchangeratesapi.io/ |
-| Validation of input | ✔️ | - |
-| Unit & Integration Tests | ✔️ | - |
-| Cache responses from https://exchangerates.io | ✔️ | Used Caffeine with TTL of 1 min |
-| Format result using Web i18n | ✔️ | - |
-| Server-Timing header in response | ✔️ | - |
-| CSRF and CSP | ✔️ | - |
-| Deployed to EC2 | ✔️ | http://44.193.212.220:8080 |
-| Add instrumentation and forward to Grafana | ✔️ | Dashboard - http://44.193.212.220:3000/d/hyXnxCi7k/jvm-micrometer |
+| Basic UI | ✅ | Deployed at http://44.193.212.220:8080 |
+| REST endpoint with `source`, `target`, `amount` as params | ✅ | Example - `/api/convert?source=EUR&target=USD&amount=100` |
+| Leverage ExchangeRates API | ✅ | https://exchangeratesapi.io/ |
+| Validation of input | ✅ | - |
+| Unit & Integration Tests | ✅ | - |
+| Cache responses from https://exchangerates.io | ✅ | Used Caffeine with TTL of 1 min |
+| Format result using Web i18n | ✅ | - |
+| Server-Timing header in response | ✅ | - |
+| CSRF and CSP | ✅ | - |
+| Deployed to EC2 | ✅ | http://44.193.212.220:8080 |
+| Add instrumentation and forward to Grafana | ✅ | Dashboard - http://44.193.212.220:3000/d/hyXnxCi7k/jvm-micrometer |
 
 #### 3. Run project locally
 
