@@ -15,7 +15,6 @@ public class ServerTimingInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Long startTime = System.currentTimeMillis();
         request.setAttribute(START_TIME, startTime);
-        log.info("Added start time attribute to request startTime={}", startTime);
         return true;
     }
 }
