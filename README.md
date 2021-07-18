@@ -3,7 +3,7 @@
 A currency conversion application built with Spring Boot and deployed to EC2
 
 
-#### 1. Deployment details
+### 1. Deployment details
 
 | Service | Address |
 | ------- |:-------:|
@@ -11,7 +11,7 @@ A currency conversion application built with Spring Boot and deployed to EC2
 | Prometheus | http://44.193.212.220:9090 |
 | Grafana | http://44.193.212.220:3000 |
 
-#### 2. Requirements checklist -
+### 2. Requirements checklist
 
 | Requirement | Status | Additional comments |
 |:-----------:|:------:|:-------------------:|
@@ -27,16 +27,45 @@ A currency conversion application built with Spring Boot and deployed to EC2
 | Deployed to EC2 | ✅ | http://44.193.212.220:8080 |
 | Add instrumentation and forward to Grafana | ✅ | Dashboard - http://44.193.212.220:3000/d/4z20iRW7z/jvm-micrometer  ID: admin Password: admin|
 
-#### 3. Run project locally
+### 3. API Contract
 
-##### 3.1 Quick run from Docker Hub
+#### API Request
+
+```
+http://44.193.212.220:8080/api/convert?source=eur&target=usd&amount=100.100
+```
+
+#### Request Params
+
+| Param | Description |
+| ------- |:-------:|
+| source | Currency to be converted from |
+| target | Currency to be converted to |
+| amount | Amount of currency to be converted |
+
+#### API Response
+Plain text response
+Example - `$118.17205399999999`
+
+#### Error Codes
+
+| Code | Description |
+| ---- |:-----------:|
+| 400 | Invalid `source`, `target` or `amount` |
+| 503 | Unable to fetch rates from third-party service for the given request params |
+
+Note: Common currencies like USD, INR not supported as source by Exchange Rates service in Free tier
+
+### 4. Run project locally
+
+#### 4.1 Quick run from Docker Hub
 
 ```
 docker run -p 8080:8080 hiscodesmells/nosto-currency-converter:latest
 ```
 Note: This command only runs the Spring Boot application
 
-##### 3.2 Complete setup (Spring Boot + Prometheus + Grafana)
+#### 4.2 Complete setup (Spring Boot + Prometheus + Grafana)
 
 ```
 git clone https://github.com/hiscodesmells/currency-converter.git
