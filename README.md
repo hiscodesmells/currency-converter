@@ -13,17 +13,17 @@ A currency conversion application built with Spring Boot and deployed to EC2
 
 #### 2. Requirements checklist -
 
-| Description | Status | Comments |
-|:-----------:|:------:|:--------:|
-| Basic UI | ✅ | Deployed at http://44.193.212.220:8080 |
-| REST endpoint with `source`, `target`, `amount` as params | ✅ | Example - `/api/convert?source=EUR&target=USD&amount=100` |
+| Requirement | Status | Additional comments |
+|:-----------:|:------:|:-------------------:|
+| Basic UI | ✅ | Deployment URL - http://44.193.212.220:8080 |
+| REST endpoint with `source`, `target`, `amount` as params | ✅ | **Example** - `/api/convert?source=EUR&target=USD&amount=100` |
 | Leverage ExchangeRates API | ✅ | https://exchangeratesapi.io/ |
-| Validation of input | ✅ | - |
-| Unit & Integration Tests | ✅ | - |
+| Validation of input | ✅ | [Validation Service](https://github.com/hiscodesmells/currency-converter/blob/master/src/main/java/org/nosto/assignment/currencyconverter/services/ValidationServiceImpl.java#L11) |
+| Unit & Integration Tests | ✅ | [Tests](https://github.com/hiscodesmells/currency-converter/tree/master/src/test/java/org/nosto/assignment/currencyconverter) |
 | Cache responses from https://exchangerates.io | ✅ | Used Caffeine with TTL of 1 min |
-| Format result using Web i18n | ✅ | - |
-| Server-Timing header in response | ✅ | - |
-| CSRF and CSP | ✅ | - |
+| Format result using Web i18n | ✅ | [Class Method](https://github.com/hiscodesmells/currency-converter/blob/master/src/main/java/org/nosto/assignment/currencyconverter/services/ConversionServiceImpl.java#L33) |
+| Server-Timing header in response | ✅ | [ServerTimingAdvice.java](https://github.com/hiscodesmells/currency-converter/blob/master/src/main/java/org/nosto/assignment/currencyconverter/advices/ServerTimingAdvice.java#L27) |
+| CSRF and CSP | ✅ | [Configuration](https://github.com/hiscodesmells/currency-converter/blob/master/src/main/java/org/nosto/assignment/currencyconverter/advices/ServerTimingAdvice.java#L27) |
 | Deployed to EC2 | ✅ | http://44.193.212.220:8080 |
 | Add instrumentation and forward to Grafana | ✅ | Dashboard - http://44.193.212.220:3000/d/hyXnxCi7k/jvm-micrometer |
 
