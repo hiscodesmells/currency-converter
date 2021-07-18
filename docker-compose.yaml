@@ -7,6 +7,7 @@ services:
       - 8080:8080
     volumes:
       - .:/code
+    image: 'hiscodesmells/nosto-currency-converter:latest'
 
   prometheus:
     image: prom/prometheus
